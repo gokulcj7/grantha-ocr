@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,12 @@
 </head>
 <body>
   <h1>OCR</h1>
-  <p>This is the OCR page.</p>
-  <p>Please upload an image of Grantha Lipi text to be recognized.</p>
+  {% if text %}
+    <p>The recognized text is:</p>
+    <p>{{ text }}</p>
+  {% else %}
+    <p>Please upload an image of Grantha Lipi text to be recognized.</p>
+  {% endif %}
   <form action="/ocr" method="post" enctype="multipart/form-data">
     <input type="file" name="image">
     <input type="submit" value="Submit">
